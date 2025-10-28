@@ -44,7 +44,8 @@ await citiesRef.doc('BJ').collection('landmarks').doc().set({
 });
 
 // Consulta 
-const querySnapshot = await db.collectionGroup('landmarks').where('type', '==', 'museum').get();
+const collectionGroup = await db.collectionGroup('landmarks');
+const querySnapshot = await collectionGroup.where('type', '==', 'museum').get();
 querySnapshot.forEach((doc) => {
   console.log(doc.id, ' => ', doc.data());
 });
